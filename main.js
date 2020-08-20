@@ -34,21 +34,16 @@ return result
 }
 
 const getToBed = function(arr){
-  let result = [];
+let result = []
 
-  for(const person of arr){
-      result.push(person)
-  }
-  
-  for(const human of result){
-    if(human.localTime >=100 && human.localTime <=400){
-      human.asleep === true
-    }
-    
-    return result
-  }
+for(const person of arr){
+  if(person.localTime >= 100 && person.localTime <= 400){
+    person.asleep = true;
+    result.push(person)
+  }else result.push(person)
+}
 
-
+return result
 }
 
 const findIndices = function(arr, callback){
@@ -63,7 +58,7 @@ const findIndices = function(arr, callback){
     return result
   }
 
-  return arr.filter(callback)
+  return callback(arr)
 
 
 }
@@ -75,11 +70,13 @@ const Faqtory = function(){
       length: 0,
       'questions': [],
 
-    addQuestion: function(){
-      let question ={
-        answered: false
-      }
+    addQuestion: function(text){
+     obj.questions.push(text)
       
+    },
+
+    answerQuestion: function(){
+
     }
 
   }
